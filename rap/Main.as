@@ -1,10 +1,14 @@
-﻿package rap{
+﻿package{
     import flash.display.MovieClip;
-
+    import flash.display.Scene;
+	import Level1Day1;
+	import flash.display.Stage;
+	
     public class Main extends MovieClip{
 
+		public var l1d1:Level1Day1 = new Level1Day1();
         public function Main() {
-           
+			addChild(l1d1);
         }
 		
 		// Button function for levels
@@ -36,6 +40,24 @@
 				default:
 					trace("button not found");
 			}
+			
+			
 		}
+		//functions for level1 daysButtons
+		public function level1Buttons(e:MouseEvent):void
+		{
+			switch(e.currentTarget.name)
+			{
+				case "l1d1Btn":gotoAndStop(2,"lesson1");
+				break;
+				case "l1BackBtn": gotoAndStop(1,"lesson1");
+				break;
+				case "l1LetsPlayBtn":gotoAndStop(3,"lesson1");
+				break;
+				default: trace("button not found");
+					
+			}
+		}
+		
 	}
 }
