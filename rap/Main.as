@@ -3,16 +3,19 @@
     import flash.display.Scene;
 	import Level1Day1;
 	import Level2Day2;
+	import Level2Day3;
 	import flash.display.Stage;
 	
     public class Main extends MovieClip{
 
 		public var l1d1:Level1Day1 = new Level1Day1();
 		public var l2d2:Level2Day2 = new Level2Day2();
+		public var l2d3:Level2Day3 = new Level2Day3();
 		
         public function Main() {
 			addChild(l1d1);
 			addChild(l2d2);
+			addChild(l2d3);
         }
 		
 		// Button function for levels
@@ -59,6 +62,8 @@
 				case "l1LetsPlayBtn":gotoAndStop(3,"lesson1");
 				break;
 				case "btn_l2_d2":gotoAndStop(9,"lesson2");
+				break;
+				case "btn_l2_d3":gotoAndStop(15,"lesson2");
 				break;
 				default: trace("button not found");
 					
