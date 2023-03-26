@@ -9,11 +9,13 @@
     public class Main extends MovieClip{
 
 		public var l1d1:Level1Day1 = new Level1Day1();
+		public var l1Day2:level1day2 = new level1day2();
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
 		
         public function Main() {
 			addChild(l1d1);
+			addChild(l1Day2);
 			addChild(l2d2);
 			addChild(l2d3);
         }
@@ -56,6 +58,8 @@
 			switch(e.currentTarget.name)
 			{
 				case "l1d1Btn":gotoAndStop(2,"lesson1");
+				break;
+				case "l1d2Btn":gotoAndStop(9,"lesson1");
 				break;
 				case "l1BackBtn": gotoAndStop(1,"lesson1");
 				break;
