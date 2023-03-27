@@ -10,12 +10,14 @@
 
 		public var l1d1:Level1Day1 = new Level1Day1();
 		public var l1Day2:level1day2 = new level1day2();
+		public var l1Day3:Level1Day3 = new Level1Day3();
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
 		
         public function Main() {
 			addChild(l1d1);
 			addChild(l1Day2);
+			addChild(l1Day3);
 			addChild(l2d2);
 			addChild(l2d3);
         }
@@ -61,9 +63,17 @@
 				break;
 				case "l1d2Btn":gotoAndStop(9,"lesson1");
 				break;
+				case "l1d3Btn":gotoAndStop(16,"lesson1");
+				break;
+				case "l1d4Btn":gotoAndStop(23,"lesson1");
+				break;
+				case "l1d5Btn":gotoAndStop(28,"lesson1");
+				break;
 				case "l1BackBtn": gotoAndStop(1,"lesson1");
 				break;
 				case "l1LetsPlayBtn":gotoAndStop(3,"lesson1");
+				break;
+				case "l1d3PlayBtn":gotoAndStop(17,"lesson1");
 				break;
 				case "btn_l2_d2":gotoAndStop(9,"lesson2");
 				break;
