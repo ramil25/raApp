@@ -3,14 +3,18 @@
     import flash.display.Scene;
 	import Level1Day1;
 	import Level2Day2;
+	import Level1Day3;
+	import l1Day4;
 	import Level2Day3;
 	import flash.display.Stage;
+	import flash.media.Sound;
 	
     public class Main extends MovieClip{
 
 		public var l1d1:Level1Day1 = new Level1Day1();
 		public var l1Day2:level1day2 = new level1day2();
 		public var l1Day3:Level1Day3 = new Level1Day3();
+		public var l1d4:l1Day4 = new l1Day4();
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
 		
@@ -18,8 +22,10 @@
 			addChild(l1d1);
 			addChild(l1Day2);
 			addChild(l1Day3);
+			addChild(l1d4);
 			addChild(l2d2);
 			addChild(l2d3);
+			
         }
 		
 		// Button function for levels
@@ -55,6 +61,7 @@
 			
 		}
 		//functions for level days buttons
+		public var title1:Sound = new Title1Sound();
 		public function levelDaysButtons(e:MouseEvent):void
 		{
 			switch(e.currentTarget.name)
@@ -74,6 +81,9 @@
 				case "l1LetsPlayBtn":gotoAndStop(3,"lesson1");
 				break;
 				case "l1d3PlayBtn":gotoAndStop(17,"lesson1");
+				break;
+				case "l1d4PlayBtn":gotoAndStop(24,"lesson1");
+						title1.play();
 				break;
 				case "btn_l2_d2":gotoAndStop(9,"lesson2");
 				break;
