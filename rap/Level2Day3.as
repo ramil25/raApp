@@ -22,6 +22,9 @@
 				case "btnBegin_l2_d3":
 					MovieClip(root).gotoAndStop(17,"lesson2");
 				break;
+				case "btnBegin2_l2_d3":
+					MovieClip(root).gotoAndStop(21,"lesson2");
+				break;
 				default: 
 					trace("Button not found in this frame.");
 			}
@@ -172,7 +175,110 @@
 				MovieClip(root).gotoAndStop(19, "lesson2");
 			}
 			else if (MovieClip(root).currentFrame == 19) {
-				MovieClip(root).gotoAndStop(1, "lesson2");
+				MovieClip(root).gotoAndStop(20, "lesson2");
+			}
+		}
+		
+		//declare sound class for words
+		public var see:SeeSound = new SeeSound();
+		public var bad:BadSound = new BadSound();
+		public var show:ShowSound = new ShowSound();
+		public var beach:BeachSound = new BeachSound();
+		public var glow:GlowSound = new GlowSound();
+		public var rain:RainSound = new RainSound();
+		public var fat:FatSound = new FatSound();
+		public var cup:CupSound = new CupSound();
+		public var boat:BoatSound = new BoatSound();
+		public var arrow:ArrowSound = new ArrowSound();
+		public var read:ReadSound = new ReadSound();
+		public var car:CarSound = new CarSound();
+		public var foam:FoamSound = new FoamSound();
+		public var team:TeamSound = new TeamSound();
+		public var moon:MoonSound = new MoonSound();
+		public var gem:GemSound = new GemSound();
+		public var bead:BeadSound = new BeadSound();
+		public var flag:FlagSound = new FlagSound();
+		public var sea:SeaSound = new SeaSound();
+		public var coal:CoalSound = new CoalSound();
+		public var bellow:BellowSound = new BellowSound();
+		public var meat:MeatSound = new MeatSound();
+		public var crab:CrabSound = new CrabSound();
+		public var dress:DressSound = new DressSound();
+		public var road:RoadSound = new RoadSound();
+		public var blue:BlueSound = new BlueSound();
+		
+		var correctCount:int = 0; // checkpoint counter for number of clicked correct words
+		
+		// Method for correct words clicked
+		public function correctWords(event:MouseEvent):void {
+			var correctWord:Array = [];
+			var correctCircle:Array = [];
+			var sounds:Array = [];
+			
+			if(MovieClip(root).currentFrame == 21) {
+				correctWord = ['btn_see', 'btn_show', 'btn_beach', 'btn_glow', 'btn_boat'];
+				correctCircle = ['correct_see', 'correct_show', 'correct_beach', 'correct_glow', 'correct_boat'];
+				sounds = [see, show, beach, glow, boat];
+			}
+			else if(MovieClip(root).currentFrame == 22) {
+				correctWord = ['btn_arrow', 'btn_read', 'btn_foam', 'btn_glow1', 'btn_team', 'btn_bead'];
+				correctCircle = ['correct_arrow', 'correct_read', 'correct_foam', 'correct_glow1', 'correct_team', 'correct_bead'];
+				sounds = [arrow, read, foam, glow, team, bead];
+			}
+			else if(MovieClip(root).currentFrame == 23) {
+				correctWord = ['btn_sea', 'btn_coal', 'btn_bellow', 'btn_meat', 'btn_road'];
+				correctCircle = ['correct_sea', 'correct_coal', 'correct_bellow', 'correct_meat', 'correct_road'];
+				sounds = [sea, coal, bellow, meat, road];
+			}
+			
+			for(var i:int = 0; i < correctWord.length; i++) {
+				if(event.currentTarget.name == correctWord[i])
+				{
+					MovieClip(root)[correctCircle[i]].visible = true;
+					sounds[i].play();
+					correctCount++;
+					
+					if(MovieClip(root).currentFrame == 21 && correctCount == correctWord.length) {
+						correctCount = 0
+						MovieClip(root).gotoAndStop(22, "lesson2");
+					}
+					else if(MovieClip(root).currentFrame == 22 && correctCount == correctWord.length) {
+						correctCount = 0
+						MovieClip(root).gotoAndStop(23, "lesson2");
+					}
+					if(MovieClip(root).currentFrame == 23 && correctCount == correctWord.length) {
+						correctCount = 0
+						MovieClip(root).gotoAndStop(24, "lesson2");
+					}
+				}
+				
+			}
+		}
+		
+		// Method for wrong words clicked
+		public function wrongWords(event:MouseEvent):void {
+			var wrongWord:Array = [];
+			var sounds:Array = [];
+			
+			if(MovieClip(root).currentFrame == 21) {
+				wrongWord = ['btn_bad', 'btn_rain', 'btn_fat', 'btn_cup'];
+				sounds = [bad, rain, fat, cup];
+			}
+			else if(MovieClip(root).currentFrame == 22) {
+				wrongWord = ['btn_car', 'btn_moon', 'btn_gem'];
+				sounds = [car, moon, gem];
+			}
+			else if(MovieClip(root).currentFrame == 23) {
+				wrongWord = ['btn_flag', 'btn_crab', 'btn_dress', 'btn_blue'];
+				sounds = [flag, crab, dress, blue];
+			}
+			
+			for(var i:int = 0; i < wrongWord.length; i++) {
+				if(event.currentTarget.name == wrongWord[i])
+				{
+					sounds[i].play();
+				}
+				
 			}
 		}
 
