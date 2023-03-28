@@ -6,6 +6,7 @@
 	import Level1Day3;
 	import l1Day4;
 	import Level2Day3;
+	import Level2Day4;
 	import flash.display.Stage;
 	import flash.media.Sound;
 	
@@ -17,6 +18,7 @@
 		public var l1d4:l1Day4 = new l1Day4();
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
+		public var l2d4:Level2Day4 = new Level2Day4();
 		
         public function Main() {
 			addChild(l1d1);
@@ -25,7 +27,7 @@
 			addChild(l1d4);
 			addChild(l2d2);
 			addChild(l2d3);
-			
+			addChild(l2d4);
         }
 		
 		// Button function for levels
@@ -88,6 +90,8 @@
 				case "btn_l2_d2":gotoAndStop(9,"lesson2");
 				break;
 				case "btn_l2_d3":gotoAndStop(15,"lesson2");
+				break;
+				case "btn_l2_d4":gotoAndStop(25,"lesson2");
 				break;
 				default: trace("button not found");
 					
