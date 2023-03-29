@@ -19,6 +19,7 @@
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
 		public var l2d4:Level2Day4 = new Level2Day4();
+		public var allDaysButtons:AllDaysButtons = new AllDaysButtons();
 		
         public function Main() {
 			addChild(l1d1);
@@ -28,6 +29,7 @@
 			addChild(l2d2);
 			addChild(l2d3);
 			addChild(l2d4);
+			addChild(allDaysButtons);
         }
 		
 		// Button function for levels
