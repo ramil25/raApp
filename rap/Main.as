@@ -17,6 +17,7 @@
 		public var l1Day2:level1day2 = new level1day2();
 		public var l1Day3:Level1Day3 = new Level1Day3();
 		public var l1d4:l1Day4 = new l1Day4();
+		public var l1d5:Level1Day5 = new Level1Day5();
 		public var l2d2:Level2Day2 = new Level2Day2();
 		public var l2d3:Level2Day3 = new Level2Day3();
 		public var l2d4:Level2Day4 = new Level2Day4();
@@ -28,6 +29,7 @@
 			addChild(l1Day2);
 			addChild(l1Day3);
 			addChild(l1d4);
+			addChild(l1d5);
 			addChild(l2d2);
 			addChild(l2d3);
 			addChild(l2d4);
