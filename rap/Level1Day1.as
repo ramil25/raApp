@@ -4,6 +4,8 @@
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
 	import flash.events.Event;
+	import flash.utils.setTimeout;
+	import flash.media.Sound;
 
 
 	public class Level1Day1 extends MovieClip {
@@ -48,40 +50,63 @@
 		//correct answer
 		public function correctAnswer(event:MouseEvent):void
 		{
+			var cSound:Sound = new CorrectSound();
 			switch(MovieClip(root).currentFrame)
 			{
 				case 4:
 					switch(event.currentTarget.name)
 					{
-						case "catBtn":MovieClip(root).gotoAndStop(5,"lesson1");
+						case "catBtn":
+							cSound.play();
+							setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 5:
 					switch(event.currentTarget.name)
 					{
-						case "bedBtn":MovieClip(root).gotoAndStop(6,"lesson1");
+						case "bedBtn":cSound.play(); setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 6:
 					switch(event.currentTarget.name)
 					{
-						case "childBtn":MovieClip(root).gotoAndStop(7,"lesson1");
+						case "childBtn":cSound.play(); setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 7:
 					switch(event.currentTarget.name)
 					{
-						case "dogBtn":MovieClip(root).gotoAndStop(8,"lesson1");
+						case "dogBtn":cSound.play(); setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 8:
 					switch(event.currentTarget.name)
 					{
-						case "sunBtn":MovieClip(root).gotoAndStop(1,"lesson1");
+						case "sunBtn":cSound.play(); setTimeout(gotoNext,1500);
 						break;
 					}break;
 					
 			}
+		}
+		public function gotoNext():void
+		{
+			if (MovieClip(root).currentFrame == 4) {
+				
+				MovieClip(root).gotoAndStop(5, "lesson1");
+			}
+			else if (MovieClip(root).currentFrame == 5) {
+				MovieClip(root).gotoAndStop(6, "lesson1");
+			}
+			else if (MovieClip(root).currentFrame == 6) {
+				MovieClip(root).gotoAndStop(7, "lesson1");
+			}
+			else if (MovieClip(root).currentFrame == 7) {
+				MovieClip(root).gotoAndStop(8, "lesson1");
+			}
+			else if (MovieClip(root).currentFrame == 8) {
+				MovieClip(root).gotoAndStop(1, "lesson1");
+			}
+			
 		}
 
 	}

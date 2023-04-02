@@ -45,13 +45,13 @@
 				// lesson 5
 					case "btn_l5_d1": MovieClip(root).gotoAndStop(2,"lesson5");
 				break;
-				case "btn_l5_d2": MovieClip(root).gotoAndStop(9,"lesson5");
+				case "btn_l5_d22": MovieClip(root).gotoAndStop(9,"lesson5");
 				break;
-				case "btn_l5_d3": MovieClip(root).gotoAndStop(19,"lesson5");
+				case "btn_l5_d3": MovieClip(root).gotoAndStop(14,"lesson5");
 				break;
-				case "btn_l5_d4": MovieClip(root).gotoAndStop(24,"lesson5");
+				case "btn_l5_d4": MovieClip(root).gotoAndStop(20,"lesson5");
 				break;
-				case "btn_l5_d5": MovieClip(root).gotoAndStop(28,"lesson5");
+				case "btn_l5_d5": MovieClip(root).gotoAndStop(25,"lesson5");
 				break;
 				case "l5_back": MovieClip(root).gotoAndStop(1,"lesson5");
 				break;
