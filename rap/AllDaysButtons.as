@@ -24,6 +24,8 @@
 				break;
 				case "l3_back": MovieClip(root).gotoAndStop(1,"lesson3");
 				break;
+				case "btnStart_l3_d5": MovieClip(root).gotoAndStop(37,"lesson3");
+				break;
 				case "btn_l3_d5": MovieClip(root).gotoAndStop(36,"lesson3");
 				break;
 				
