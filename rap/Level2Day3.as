@@ -5,7 +5,7 @@
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import flash.utils.setTimeout;
-
+	import flash.media.Sound;
 
 	public class Level2Day3 extends MovieClip {
 
@@ -40,6 +40,9 @@
 		public var coat:CoatSound = new CoatSound();
 		public var dog:DogSound = new DogSound();
 		public var bag:BagSound = new BagSound();
+		
+		public var cSound:Sound = new CorrectSound();
+		public var wSound:Sound = new WrongSound();
 		
 		// Method for playing sound
 		public function playSounds(event:MouseEvent):void
@@ -79,16 +82,19 @@
 					{
 						case "btn_eagle":
 							MovieClip(root).correct_eagle.visible = true;
+							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
 						case "btn_van":
 							MovieClip(root).wrong_van.visible = true;
+							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_pillow_1":
 							MovieClip(root).correct_pillow.visible = true;
+							cSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
 						break;
@@ -99,16 +105,19 @@
 					{
 						case "btn_tree":
 							MovieClip(root).correct_tree.visible = true;
+							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
 						case "btn_cat_1":
 							MovieClip(root).wrong_cat.visible = true;
+							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_jeep":
 							MovieClip(root).correct_jeep.visible = true;
+							cSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
 						break;
@@ -119,16 +128,19 @@
 					{
 						case "btn_coat":
 							MovieClip(root).correct_coat.visible = true;
+							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
-						case "btn_dog":
+						case "btn_dogg":
 							MovieClip(root).wrong_dog.visible = true;
+							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_bag":
 							MovieClip(root).wrong_bag.visible = true;
+							wSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
 						break;
@@ -237,6 +249,8 @@
 					MovieClip(root)[correctCircle[i]].visible = true;
 					sounds[i].play();
 					correctCount++;
+					
+					event.currentTarget.removeEventListener(MouseEvent.CLICK, correctWords);
 					
 					if(MovieClip(root).currentFrame == 21 && correctCount == correctWord.length) {
 						correctCount = 0
