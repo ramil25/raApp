@@ -4,7 +4,7 @@
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
 	import flash.events.Event;
-
+	import flash.media.Sound;
 
 	public class Level2Day5 extends MovieClip {
 
@@ -27,8 +27,13 @@
 			}
 		}
 		
+		public var cSound:Sound = new CorrectSound();
+		public var wSound:Sound = new WrongSound();
+		
 		public function correctChoice(e:MouseEvent):void 
 		{
+			cSound.play();
+			
 			if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c2") 
 			{
 				MovieClip(root).gotoAndStop(32,"lesson2");
@@ -40,6 +45,38 @@
 			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c3")
 			{
 				MovieClip(root).gotoAndStop(1,"lesson2");
+			}
+			else 
+			{
+				trace("Clicked button wasn't found correctly.");
+			}
+		}
+		
+		public function wrongChoice(e:MouseEvent):void 
+		{
+			if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c1") 
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c3") 
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentFrame == 32 && e.currentTarget.name == "btn_c2")
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentFrame == 32 && e.currentTarget.name == "btn_c3")
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c1")
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c2")
+			{
+				wSound.play();
 			}
 			else 
 			{
