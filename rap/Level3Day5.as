@@ -19,7 +19,8 @@
 		//answer detection
 		public function correctAnswer(e:MouseEvent):void
 		{
-			cSound.play();
+			
+			
 			
 			if(MovieClip(root).currentScene.name == "lesson3" && MovieClip(root).currentFrame == 38)
 			{
@@ -47,6 +48,7 @@
 				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
 				MovieClip(root).gotoAndStop(1,"lesson3");
 			}
+			cSound.play();
 		}
 		public function wrongAnswer(e:MouseEvent):void
 		{
