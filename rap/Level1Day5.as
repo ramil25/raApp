@@ -45,7 +45,27 @@
 		public function wrongAnswer(e:MouseEvent):void
 		{
 			
-			wSound.play();
+			if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 30)
+			{
+				wSound.play();
+				
+			}
+			else if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 31)
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 32)
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 33)
+			{
+				wSound.play();
+			}
+			else if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 34)
+			{
+				wSound.play();
+			}
 			
 		}
 
