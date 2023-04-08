@@ -111,6 +111,7 @@
 		//timer
 		public var countdown: int = 180; // 3 minutes = 180 seconds
 		public var timer:Timer = new Timer(1000, countdown);
+		public var endTimeSound:Sound = new TimesUpSound();
 
 
 		public function onTick(event:TimerEvent): void {
@@ -123,8 +124,10 @@
 
 		public function onComplete(event: TimerEvent): void {
 			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
-			setTimeout(nextFramee,2000);
+			endTimeSound.play();
+			timer.reset();
 			countdown = 180;
+			setTimeout(nextFramee,2000);
 			
 		}
 		public function nextFramee(){
