@@ -14,6 +14,8 @@
 	import Level4Day3;
 	import Level4Day4;
 	import Level4Day5;
+	import Level5Day2;
+	import Level5Day4;
 	import flash.display.Stage;
 	import flash.media.Sound;
 	
@@ -38,6 +40,8 @@
 		public var l4d3:Level4Day3 = new Level4Day3();
 		public var l4d4:Level4Day4 = new Level4Day4();
 		public var l4d5:Level4Day5 = new Level4Day5();
+		public var l5d2:Level5Day2 = new Level5Day2();
+		public var l5d4:Level5Day4 = new Level5Day4();
 		public var allLevel6:AllLevel6 = new AllLevel6();
 		public var allDaysButtons:AllDaysButtons = new AllDaysButtons();
 		
@@ -61,6 +65,8 @@
 			addChild(l4d3);
 			addChild(l4d4);
 			addChild(l4d5);
+			addChild(l5d2);
+			addChild(l5d4);
 			addChild(allLevel6);
 			addChild(allDaysButtons);
         }
