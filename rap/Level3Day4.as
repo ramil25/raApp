@@ -270,7 +270,7 @@
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp21.hitTestPoint(endPoint.x, endPoint.y)) {
-				MovieClip(root).h_say.visible = true;
+				MovieClip(root).h_say1.visible = true;
 				isComplete6[6] = 1;
 				cSound.play();
 			}
@@ -380,7 +380,7 @@
 		}
 		
 		function goToDone():void {
-			MovieClip(root).gotoAndStop(1, "lesson4");
+			MovieClip(root).gotoAndStop(1, "lesson3");
 		}
 		
 	}
