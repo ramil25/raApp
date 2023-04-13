@@ -45,15 +45,16 @@
 			}
 			else if(MovieClip(root).currentScene.name == "lesson3" && MovieClip(root).currentFrame == 42)
 			{
-				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
 				MovieClip(root).gotoAndStop(1,"lesson3");
+				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
+				
 			}
 			cSound.play();
 		}
 		public function wrongAnswer(e:MouseEvent):void
 		{
-			
 			wSound.play();
+			e.currentTarget.removeEventListener(MouseEvent.CLICK,this.wrongAnswer);
 			
 		}
 
