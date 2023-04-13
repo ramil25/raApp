@@ -9,6 +9,7 @@
 	import Level2Day3;
 	import Level2Day4;
 	import Level2Day5;
+	import Level3Day4;
 	import Level4Day1;
 	import Level4Day2;
 	import Level4Day3;
@@ -34,6 +35,7 @@
 		public var l3d1:Level3Day1 = new Level3Day1();
 		public var l3d2:Level3Day2 = new Level3Day2();
 		public var l3d3:Level3Day3 = new Level3Day3();
+		public var l3d4:Level3Day4 = new Level3Day4();
 		public var l3d5:Level3Day5 = new Level3Day5();
 		public var l4d1:Level4Day1 = new Level4Day1();
 		public var l4d2:Level4Day2 = new Level4Day2();
@@ -59,6 +61,7 @@
 			addChild(l3d1);
 			addChild(l3d2);
 			addChild(l3d3);
+			addChild(l3d4);
 			addChild(l3d5);
 			addChild(l4d1);
 			addChild(l4d2);
