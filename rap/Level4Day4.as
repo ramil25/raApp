@@ -139,7 +139,7 @@
 		function complete(): void {
 			if(wordCounter == 0)
 			{
-				MovieClip(this.root).gotoAndStop(1, "lesson4");
+				MovieClip(this.root).gotoAndStop(33, "lesson4");
 			}
 		}
 

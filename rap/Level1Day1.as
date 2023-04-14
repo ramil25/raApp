@@ -104,7 +104,7 @@
 				MovieClip(root).gotoAndStop(8, "lesson1");
 			}
 			else if (MovieClip(root).currentFrame == 8) {
-				MovieClip(root).gotoAndStop(1, "lesson1");
+				MovieClip(root).gotoAndStop(35, "lesson1");
 			}
 			
 		}

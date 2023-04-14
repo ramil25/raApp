@@ -25,7 +25,7 @@
 				case "l1Next3": MovieClip(root).gotoAndStop(27,"lesson1");
 				page3Sound.play();
 				break;
-				case "l1Next4": MovieClip(root).gotoAndStop(1,"lesson1");
+				case "l1Next4": MovieClip(root).gotoAndStop(35,"lesson1");
 				break;
 			}
 		}

@@ -71,6 +71,19 @@
 				break;
 				case "l6_back": MovieClip(root).gotoAndStop(1,"lesson6");
 				break;
+				//back to frame 1
+				case "goBackToLevel1": MovieClip(root).gotoAndStop(1, "lesson1");
+				break;
+				case "goBackToLevel2": MovieClip(root).gotoAndStop(1, "lesson2");
+				break;
+				case "goBackToLevel3": MovieClip(root).gotoAndStop(1, "lesson3");
+				break;
+				case "goBackToLevel4": MovieClip(root).gotoAndStop(1, "lesson4");
+				break;
+				case "goBackToLevel5": MovieClip(root).gotoAndStop(1, "lesson5");
+				break;
+				case "goBackToLevel6": MovieClip(root).gotoAndStop(1, "lesson6");
+				break;
 			}
 		}
 

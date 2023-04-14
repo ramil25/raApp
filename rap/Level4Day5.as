@@ -177,7 +177,7 @@
 		}
 		
 		function goToDone():void {
-			MovieClip(root).gotoAndStop(1, "lesson4");
+			MovieClip(root).gotoAndStop(33, "lesson4");
 		}
 	}
 

@@ -43,7 +43,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 16)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson6");
+				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 21)
 			{
@@ -63,7 +63,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 25)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson6");
+				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 32)
 			{
@@ -83,7 +83,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 36)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson6");
+				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 41)
 			{
@@ -103,7 +103,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 45)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson6");
+				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			
 			else if(MovieClip(root).currentFrame == 53)
@@ -124,7 +124,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 57)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson6");
+				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else 
 			{

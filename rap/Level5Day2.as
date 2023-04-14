@@ -98,7 +98,7 @@
 					}
 					if(MovieClip(root).currentFrame == 13 && correctCount == correctWord.length) {
 						correctCount = 0
-						MovieClip(root).gotoAndStop(1, "lesson5");
+						MovieClip(root).gotoAndStop(31, "lesson5");
 					}
 				}
 				
