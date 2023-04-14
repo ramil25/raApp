@@ -70,7 +70,7 @@
 			}
 			if(e.currentTarget.name == "btn_10"){
 				sentence10Sound.play();
-				MovieClip(root).gotoAndStop(1,"lesson1");
+				MovieClip(root).gotoAndStop(35,"lesson1");
 			}else if(e.currentTarget.name =="btn_5"){
 				sentence5Sound.play();
 				MovieClip(root).gotoAndStop(22,"lesson1");

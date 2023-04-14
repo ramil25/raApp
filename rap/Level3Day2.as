@@ -20,7 +20,7 @@
 			e.currentTarget.removeEventListener(MouseEvent.CLICK, this.nextFramed);
 			if(MovieClip(this.root).currentFrame ==19)
 			{
-				MovieClip(this.root).gotoAndStop(1);
+				MovieClip(this.root).gotoAndStop(43);
 			}
 			else{
 				MovieClip(root).nextFrame();
@@ -92,6 +92,17 @@
 				wSound.play();
 				getX = 0;
 				getY = 0;
+			}
+		}
+		
+		public function ZoomObject(e:MouseEvent):void
+		{
+			switch(e.currentTarget.name)
+			{
+				case "wayZoomBtn": e.currentTarget.play();
+				break;
+				case "catZoomBtn": e.currentTarget.play();
+				break;
 			}
 		}
 

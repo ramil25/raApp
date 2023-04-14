@@ -264,7 +264,7 @@
 					}
 			}if(event.currentTarget.name == "gumbtn"){
 					gum.play(); 
-					MovieClip(root).gotoAndStop(1,"lesson1");
+					MovieClip(root).gotoAndStop(35,"lesson1");
 				
 					}
 

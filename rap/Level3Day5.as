@@ -45,7 +45,7 @@
 			}
 			else if(MovieClip(root).currentScene.name == "lesson3" && MovieClip(root).currentFrame == 42)
 			{
-				MovieClip(root).gotoAndStop(1,"lesson3");
+				MovieClip(root).gotoAndStop(43,"lesson3");
 				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
 				
 			}

@@ -262,7 +262,7 @@
 					}
 					if(MovieClip(root).currentFrame == 23 && correctCount == correctWord.length) {
 						correctCount = 0
-						MovieClip(root).gotoAndStop(24, "lesson2");
+						MovieClip(root).gotoAndStop(34, "lesson2");
 					}
 				}
 				

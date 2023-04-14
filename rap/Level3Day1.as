@@ -105,7 +105,7 @@
 
 		}
 		public function gotoDone(e: MouseEvent): void {
-			MovieClip(this.root).gotoAndStop(1, "lesson3");
+			MovieClip(this.root).gotoAndStop(43, "lesson3");
 		}
 
 		//timer
@@ -133,7 +133,7 @@
 		public function nextFramee(){
 			if(MovieClip(this.root).currentFrame == 8)
 			{
-				MovieClip(this.root).gotoAndStop(1,"lesson3");
+				MovieClip(this.root).gotoAndStop(43,"lesson3");
 			}else{
 				MovieClip(this.root).nextFrame();
 			}

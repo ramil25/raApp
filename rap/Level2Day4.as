@@ -30,7 +30,7 @@
 					par2Sound.play();
 				break;
 				case "nextPar3": 
-					MovieClip(root).gotoAndStop(1,"lesson2");
+					MovieClip(root).gotoAndStop(34,"lesson2");
 				break;
 			}
 		}

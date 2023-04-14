@@ -292,7 +292,7 @@
 				break;
 				case "flow": 
 					flow.play();
-					MovieClip(root).gotoAndStop(1,"lesson2");
+					MovieClip(root).gotoAndStop(34,"lesson2");
 				break;
 				default: trace("No sound was found");
 			}
