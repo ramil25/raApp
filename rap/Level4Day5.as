@@ -45,7 +45,7 @@
 			
 			checkPointers(event.currentTarget.name);
 			
-			drawingLayer.graphics.lineStyle(5, 0x000000);
+			drawingLayer.graphics.lineStyle(20, 0x000000);
 			drawingLayer.graphics.moveTo(event.stageX, event.stageY);
 			stage.addEventListener(MouseEvent.MOUSE_MOVE, drawLine);
 		}
@@ -172,6 +172,11 @@
 			
 			if(complete)
 			{
+				for(var j: int = 0; j < isFinish.length; j++)
+				{
+					isFinish[j] = 0; // reset all array elements
+				}
+			
 				setTimeout(goToDone, 1000);
 			}
 		}
