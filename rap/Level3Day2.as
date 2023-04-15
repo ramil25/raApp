@@ -103,6 +103,14 @@
 				break;
 				case "catZoomBtn": e.currentTarget.play();
 				break;
+				case "weightZoomBtn": e.currentTarget.play();
+				break;
+				case "eightZoomBtn": e.currentTarget.play();
+				break;
+				case "cookieZoomBtn": e.currentTarget.play();
+				break;
+				case "tieZoomBtn": e.currentTarget.play();
+				break;
 			}
 		}
 
