@@ -3,6 +3,10 @@
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
 	import flash.media.Sound;
+	import flash.media.SoundMixer;
+	import flash.utils.setTimeout;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level3Day2 extends MovieClip {
 
@@ -23,7 +27,8 @@
 				MovieClip(this.root).gotoAndStop(43);
 			}
 			else{
-				MovieClip(root).nextFrame();
+				SoundMixer.stopAll();
+				MovieClip(root).nextFrame();				
 			}
 		}
 
@@ -43,6 +48,8 @@
 				event.currentTarget.x = 468;
 				event.currentTarget.y = 357;
 				cSound.play();
+				timer.stop();
+				cd = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 				MovieClip(this.root).nextBtn.addEventListener(MouseEvent.CLICK, this.nextFramed);
 			}
@@ -53,6 +60,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
 				cSound.play();
+				timer.stop();
+				cd = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 				MovieClip(this.root).nextBtn.addEventListener(MouseEvent.CLICK, this.nextFramed);
 			}
@@ -63,6 +72,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
 				cSound.play();
+				timer.stop();
+				cd = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 				MovieClip(this.root).nextBtn.addEventListener(MouseEvent.CLICK, this.nextFramed);
 			}
@@ -73,6 +84,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
 				cSound.play();
+				timer.stop();
+				cd = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 				MovieClip(this.root).nextBtn.addEventListener(MouseEvent.CLICK, this.nextFramed);
 			}
@@ -83,6 +96,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
 				cSound.play();
+				timer.stop();
+				cd = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 				MovieClip(this.root).nextBtn.addEventListener(MouseEvent.CLICK, this.nextFramed);
 			}
@@ -112,6 +127,52 @@
 				case "tieZoomBtn": e.currentTarget.play();
 				break;
 			}
+		}
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 15)
+			{
+				MovieClip(root).gotoAndStop(16, "lesson3");
+			}
+			else if(MovieClip(root).currentFrame == 16)
+			{
+				MovieClip(root).gotoAndStop(17, "lesson3");
+			}
+			else if(MovieClip(root).currentFrame == 17)
+			{
+				MovieClip(root).gotoAndStop(18, "lesson3");
+			}
+			else if(MovieClip(root).currentFrame == 18)
+			{
+				MovieClip(root).gotoAndStop(19, "lesson3");
+			}
+			else if(MovieClip(root).currentFrame == 19)
+			{
+				MovieClip(root).gotoAndStop(43, "lesson3");
+			}
+
 		}
 
 	}
