@@ -5,6 +5,7 @@
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import flash.utils.setTimeout;
+	import flash.media.SoundMixer;
 	import flash.media.Sound;
 	import flash.geom.Point;
 
@@ -21,6 +22,7 @@
 					MovieClip(root).gotoAndStop(28,"lesson3");
 				break;
 				case "btnPlay_l3_d4":
+					SoundMixer.stopAll();
 					MovieClip(root).gotoAndStop(29,"lesson3");
 				break;
 				default: 
@@ -30,6 +32,7 @@
 		
 		public var cSound:Sound = new CorrectSound();
 		public var wSound:Sound = new WrongSound();
+		public var robotl3d4: Sound = new RobotL3D4Sound();
 		
 		var isComplete1:Array = [0, 0, 0]; // array for checking if words are highlighted in first highlight quiz
 		var isComplete2:Array = [0, 0]; // array for checking if words are highlighted in second highlight quiz
