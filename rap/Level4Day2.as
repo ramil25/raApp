@@ -44,17 +44,17 @@
 		
 		public function playSounds(e:MouseEvent):void
 		{
-			if(e.currentTarget.name == "btn_fly") {
-				fly.play();
+			if(e.currentTarget.name == "flyZoomBtn") {
+				e.currentTarget.play();
 			}
-			else if(e.currentTarget.name == "btn_cry") {
-				cry.play();
+			else if(e.currentTarget.name == "cryZoomBtn") {
+				e.currentTarget.play();
 			}
-			else if(e.currentTarget.name == "btn_sunny") {
-				sunny.play();
+			else if(e.currentTarget.name == "sunnyZoomBtn") {
+				e.currentTarget.play();
 			}
-			else if(e.currentTarget.name == "btn_pony") {
-				pony.play();
+			else if(e.currentTarget.name == "ponyZoomBtn") {
+				e.currentTarget.play();
 			}
 		}
 		
