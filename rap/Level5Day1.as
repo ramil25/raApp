@@ -3,18 +3,28 @@
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
 	import flash.media.Sound;
+	import flash.media.SoundMixer;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
+	import flash.utils.setTimeout;
 
 	public class Level5Day1 extends MovieClip {
 
 		public function Level5Day1() {
 			// constructor code
 		}
+		
 		public var getX: int = 0;
 		public var getY: int = 0;
 		public var cSound:Sound = new CorrectSound();
 		public var wSound:Sound = new WrongSound();
 		public var countCorrect:int = 0;
+		
+		public var robot1Sound: Sound = new RB1L4D2Sound();
+		public var robot2Sound: Sound = new RobotL5D1Sound();	
+		
 		public function nextPage(e: MouseEvent): void {
+			SoundMixer.stopAll();
 			MovieClip(root).nextFrame();
 			//e.currentTarget.removeEventListener(MouseEvent.CLICK, this.nextPage);
 		}
@@ -35,7 +45,11 @@
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
+				{
+					timer.stop();
+					cd = 180;
 					MovieClip(root).gotoAndStop(30,"lesson5");
+				}
 			}
 			else if((event.currentTarget.name=="dr1" || event.currentTarget.name=="dr2") && event.currentTarget.hitTestObject(MovieClip(root).pointCollider2))
 			{
@@ -46,7 +60,11 @@
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
+				{
+					timer.stop();
+					cd = 180;
 					MovieClip(root).gotoAndStop(30,"lesson5");
+				}
 			}
 			else if((event.currentTarget.name=="br1") && event.currentTarget.hitTestObject(MovieClip(root).pointCollider3))
 			{
@@ -57,7 +75,11 @@
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
+				{
+					timer.stop();
+					cd = 180;
 					MovieClip(root).gotoAndStop(30,"lesson5");
+				}
 			}
 			else if((event.currentTarget.name=="fr1") && event.currentTarget.hitTestObject(MovieClip(root).pointCollider4))
 			{
@@ -68,7 +90,11 @@
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
+				{
+					timer.stop();
+					cd = 180;
 					MovieClip(root).gotoAndStop(30,"lesson5");
+				}
 			}
 			else if((event.currentTarget.name=="tr1") && event.currentTarget.hitTestObject(MovieClip(root).pointCollider5))
 			{
@@ -79,7 +105,12 @@
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
+				{
+					timer.stop();
+					cd = 180;
 					MovieClip(root).gotoAndStop(30,"lesson5");
+				}
+					
 			}
 			else{
 				event.currentTarget.x = getX;
@@ -90,6 +121,34 @@
 			}
 		}
 
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 7)
+			{
+				MovieClip(root).gotoAndStop(30, "lesson5");
+			}
+		}
 
 	}
 
