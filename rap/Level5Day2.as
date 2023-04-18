@@ -6,6 +6,8 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level5Day2 extends MovieClip {
 
@@ -17,11 +19,11 @@
 		{
 			if(e.currentTarget.name == "btnStart") 
 			{
-				MovieClip(root).gotoAndStop(10,"lesson5");
+				MovieClip(root).gotoAndStop(9,"lesson5");
 			}
 			if(e.currentTarget.name == "btnPlay") 
 			{
-				MovieClip(root).gotoAndStop(11,"lesson5");
+				MovieClip(root).gotoAndStop(10,"lesson5");
 			}
 			
 		}
@@ -63,17 +65,17 @@
 			var correctCircle:Array = [];
 			var sounds:Array = [];
 			
-			if(MovieClip(root).currentFrame == 11) {
+			if(MovieClip(root).currentFrame == 10) {
 				correctWord = ['btn_grass', 'btn_crab', 'btn_train', 'btn_crown', 'btn_crayon'];
 				correctCircle = ['correct_grass', 'correct_crab', 'correct_train', 'correct_crown', 'correct_crayon'];
 				sounds = [grass, crab, train, crown, crayon];
 			}
-			else if(MovieClip(root).currentFrame == 12) {
+			else if(MovieClip(root).currentFrame == 11) {
 				correctWord = ['btn_frame', 'btn_trap', 'btn_grapes', 'btn_crib', 'btn_truck'];
 				correctCircle = ['correct_frame', 'correct_trap', 'correct_grapes', 'correct_crib', 'correct_truck'];
 				sounds = [frame, trap, grapes, crib, truck];
 			}
-			else if(MovieClip(root).currentFrame == 13) {
+			else if(MovieClip(root).currentFrame == 12) {
 				correctWord = ['btn_brick', 'btn_broom', 'btn_grand', 'btn_bright', 'btn_dress'];
 				correctCircle = ['correct_brick', 'correct_broom', 'correct_grand', 'correct_bright', 'correct_dress'];
 				sounds = [brick, broom, grand, bright, dress];
@@ -88,17 +90,23 @@
 					
 					event.currentTarget.removeEventListener(MouseEvent.CLICK, correctWords);
 					
-					if(MovieClip(root).currentFrame == 11 && correctCount == correctWord.length) {
-						correctCount = 0
+					if(MovieClip(root).currentFrame == 10 && correctCount == correctWord.length) {
+						correctCount = 0;
+						timer.stop();
+						cd = 180;
+						MovieClip(root).gotoAndStop(11, "lesson5");
+					}
+					else if(MovieClip(root).currentFrame == 11 && correctCount == correctWord.length) {
+						correctCount = 0;
+						timer.stop();
+						cd = 180;
 						MovieClip(root).gotoAndStop(12, "lesson5");
 					}
 					else if(MovieClip(root).currentFrame == 12 && correctCount == correctWord.length) {
-						correctCount = 0
-						MovieClip(root).gotoAndStop(13, "lesson5");
-					}
-					if(MovieClip(root).currentFrame == 13 && correctCount == correctWord.length) {
-						correctCount = 0
-						MovieClip(root).gotoAndStop(31, "lesson5");
+						correctCount = 0;
+						timer.stop();
+						cd = 180;
+						MovieClip(root).gotoAndStop(30, "lesson5");
 					}
 				}
 				
@@ -110,15 +118,15 @@
 			var wrongWord:Array = [];
 			var sounds:Array = [];
 			
-			if(MovieClip(root).currentFrame == 11) {
+			if(MovieClip(root).currentFrame == 10) {
 				wrongWord = ['btn_flower', 'btn_banana', 'btn_raise', 'btn_ribbon'];
 				sounds = [flower, banana, raise, ribbon];
 			}
-			else if(MovieClip(root).currentFrame == 12) {
+			else if(MovieClip(root).currentFrame == 11) {
 				wrongWord = ['btn_jacket', 'btn_rock', 'btn_clock', 'btn_funny'];
 				sounds = [jacket, rock, clock, funny];
 			}
-			else if(MovieClip(root).currentFrame == 13) {
+			else if(MovieClip(root).currentFrame == 12) {
 				wrongWord = ['btn_sway', 'btn_lock', 'btn_pat', 'btn_sock'];
 				sounds = [sway, lock, pat, sock];
 			}
@@ -131,7 +139,43 @@
 				
 			}
 		}
-
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 10)
+			{
+				MovieClip(root).gotoAndStop(11, "lesson5");
+			}
+			else if(MovieClip(root).currentFrame == 11)
+			{
+				MovieClip(root).gotoAndStop(12, "lesson5");
+			}
+			else if(MovieClip(root).currentFrame == 12)
+			{
+				MovieClip(root).gotoAndStop(30, "lesson5");
+			}
+		}
 	}
 
 }

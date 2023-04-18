@@ -6,6 +6,9 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
+	import flash.media.SoundMixer;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level4Day2 extends MovieClip {
 
@@ -25,6 +28,9 @@
 		public var cry:Sound = new CrySound();
 		public var sunny:Sound = new SunnySound();
 		public var pony:Sound = new PonySound();
+	
+		public var robot1Sound: Sound = new RB1L4D2Sound();
+		public var robot2Sound: Sound = new RB2L4D2Sound();
 		
 		public function nextButtons(e:MouseEvent):void
 		{
@@ -35,9 +41,11 @@
 				MovieClip(root).gotoAndStop(12,"lesson4");
 			}
 			else if(e.currentTarget.name == "btn_play") {
+				SoundMixer.stopAll();
 				MovieClip(root).gotoAndStop(13,"lesson4");
 			}
 			else if(e.currentTarget.name == "btn_play_1") {
+				SoundMixer.stopAll();
 				MovieClip(root).gotoAndStop(14,"lesson4");
 			}
 		}
@@ -61,6 +69,8 @@
 		public function correctAnswer(e:MouseEvent):void 
 		{
 			cSound.play();
+			timer.stop();
+			cd = 180;
 			
 			switch(MovieClip(root).currentFrame) 
 			{
@@ -87,6 +97,51 @@
 		public function wrongAnswer(e:MouseEvent):void 
 		{
 			wSound.play();
+		}
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 14)
+			{
+				MovieClip(root).gotoAndStop(15, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 15)
+			{
+				MovieClip(root).gotoAndStop(16, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 16)
+			{
+				MovieClip(root).gotoAndStop(17, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 17)
+			{
+				MovieClip(root).gotoAndStop(18, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 18)
+			{
+				MovieClip(root).gotoAndStop(33, "lesson4");
+			}
 		}
 	}
 

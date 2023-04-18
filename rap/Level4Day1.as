@@ -6,6 +6,8 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level4Day1 extends MovieClip {
 
@@ -33,6 +35,8 @@
 		public function correctAnswer(e:MouseEvent):void 
 		{
 			cSound.play();
+			timer.stop();
+			cd = 180;
 			
 			switch(MovieClip(root).currentFrame) 
 			{
@@ -59,6 +63,52 @@
 		public function wrongAnswer(e:MouseEvent):void 
 		{
 			wSound.play();
+		}
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 4)
+			{
+				MovieClip(root).gotoAndStop(5, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 5)
+			{
+				MovieClip(root).gotoAndStop(6, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 6)
+			{
+				MovieClip(root).gotoAndStop(7, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 7)
+			{
+				MovieClip(root).gotoAndStop(8, "lesson4");
+			}
+			else if(MovieClip(root).currentFrame == 8)
+			{
+				MovieClip(root).gotoAndStop(33, "lesson4");
+			}
+
 		}
 	}
 

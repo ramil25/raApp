@@ -7,6 +7,9 @@
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
 	import flash.text.TextField;
+	import flash.media.SoundMixer;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level5Day5 extends MovieClip {
 
@@ -18,18 +21,23 @@
 		{
 			switch(e.currentTarget.name) {
 				case "btnStart_l5_d5":
-					MovieClip(root).gotoAndStop(26,"lesson5");
+					MovieClip(root).gotoAndStop(25,"lesson5");
 				break;
 				case "btnPlay_l5_d5":
-					MovieClip(root).gotoAndStop(27,"lesson5");
+					SoundMixer.stopAll();
+					MovieClip(root).gotoAndStop(26,"lesson5");
 				break;
 				case "btnPlay1_l5_d5":
-					MovieClip(root).gotoAndStop(28,"lesson5");
+					SoundMixer.stopAll();
+					MovieClip(root).gotoAndStop(27,"lesson5");
 				break;
 				default: 
 					trace("Button not found in this frame.");
 			}
 		}
+		
+		public var robot1Sound: Sound = new RB1L4D2Sound();
+		public var robot2Sound: Sound = new RobotL5D5Sound();	
 		
 		public var cSound:Sound = new CorrectSound();
 		public var wSound:Sound = new WrongSound();
@@ -428,15 +436,52 @@
 				columnPic[i] = false;
 			}
 			
-			if(MovieClip(root).currentFrame == 28 && correctCounter == 10)
+			if(MovieClip(root).currentFrame == 27 && correctCounter == 10)
 			{
 				correctCounter = 0;
-				MovieClip(root).gotoAndStop(29,"lesson5");
+				timer.stop();
+				cd = 180;
+				MovieClip(root).gotoAndStop(28,"lesson5");
 			}
-			else if(MovieClip(root).currentFrame == 29 && correctCounter == 10)
+			else if(MovieClip(root).currentFrame == 28 && correctCounter == 10)
 			{
 				correctCounter = 0;
-				MovieClip(root).gotoAndStop(31,"lesson5");
+				timer.stop();
+				cd = 180;
+				MovieClip(root).gotoAndStop(30,"lesson5");
+			}
+		}
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 27)
+			{
+				MovieClip(root).gotoAndStop(28, "lesson5");
+			}
+			else if(MovieClip(root).currentFrame == 28)
+			{
+				MovieClip(root).gotoAndStop(30, "lesson5");
 			}
 		}
 

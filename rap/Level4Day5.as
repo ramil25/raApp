@@ -6,6 +6,9 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
+	import flash.media.SoundMixer;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	public class Level4Day5 extends MovieClip {
 
@@ -20,15 +23,20 @@
 					MovieClip(root).gotoAndStop(29,"lesson4");
 				break;
 				case "btnPlay":
+					SoundMixer.stopAll();
 					MovieClip(root).gotoAndStop(30,"lesson4");
 				break;
 				case "btnPlay1":
+					SoundMixer.stopAll();
 					MovieClip(root).gotoAndStop(31,"lesson4");
 				break;
 				default: 
 					trace("Button not found in this frame.");
 			}
 		}
+		
+		public var robot1Sound: Sound = new RB1L4D2Sound();
+		public var robot2Sound: Sound = new RobotL4D5Sound();		
 		
 		public var cSound:Sound = new CorrectSound();
 		public var wSound:Sound = new WrongSound();
@@ -177,12 +185,43 @@
 					isFinish[j] = 0; // reset all array elements
 				}
 			
+				timer.stop();
+				cd = 180;
 				setTimeout(goToDone, 1000);
 			}
 		}
 		
 		function goToDone():void {
 			MovieClip(root).gotoAndStop(33, "lesson4");
+		}
+		
+		//timer
+		private var cd: int = 180; // 3 minutes = 180 seconds
+		public var timer:Timer = new Timer(1000, cd);
+		public var endTimeSound:Sound = new TimesUpSound();
+		
+		public function onTick(event:TimerEvent): void {
+			cd--;
+			var minutes:int = Math.floor(cd / 60);
+			var seconds:int = cd % 60;
+			var time:String = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+			MovieClip(this.root).time_txt.text = time;
+		}
+		
+		public function onComplete(event: TimerEvent): void {
+			MovieClip(this.root).time_txt.text = String("Time's Up!!!");
+			endTimeSound.play();
+			timer.reset();
+			cd = 180;
+			
+			setTimeout(timerNextFrame, 1000);
+		}
+		
+		public function timerNextFrame():void {
+			if(MovieClip(root).currentFrame == 31)
+			{
+				MovieClip(root).gotoAndStop(33, "lesson4");
+			}
 		}
 	}
 
