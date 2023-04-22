@@ -43,6 +43,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider1.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider1.y-10;
 				cSound.play();
+				event.currentTarget.visible = false;
+				MovieClip(root).dr1t.visible = true;
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
 				{
@@ -58,6 +60,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider2.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider2.y-10;
 				cSound.play();
+				event.currentTarget.visible = false;
+				MovieClip(root).dr2t.visible = true;
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
 				{
@@ -73,6 +77,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider3.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider3.y-10;
 				cSound.play();
+				event.currentTarget.visible = false;
+				MovieClip(root).brt.visible = true;
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
 				{
@@ -88,6 +94,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider4.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider4.y-10;
 				cSound.play();
+				event.currentTarget.visible = false;
+				MovieClip(root).frt.visible = true;
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
 				{
@@ -103,6 +111,8 @@
 				event.currentTarget.x = MovieClip(this.root).pointCollider5.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider5.y-10;
 				cSound.play();
+				event.currentTarget.visible = false;
+				MovieClip(root).trt.visible = true;
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
 				{
