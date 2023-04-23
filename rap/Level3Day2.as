@@ -7,11 +7,14 @@
 	import flash.utils.setTimeout;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level3Day2 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level3Day2() {
-			// constructor code
+			addChild(scoring);
 		}
 
 		public var robot1Sound: Sound = new L3D2Robot1Sound();
@@ -47,6 +50,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.stopDragg);
 				event.currentTarget.x = 468;
 				event.currentTarget.y = 357;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				cd = 180;
@@ -59,6 +63,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.stopDragg);
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				cd = 180;
@@ -71,6 +76,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.stopDragg);
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				cd = 180;
@@ -83,6 +89,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.stopDragg);
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				cd = 180;
@@ -95,6 +102,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.stopDragg);
 				event.currentTarget.x = MovieClip(this.root).pointCollider.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider.y-10;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				cd = 180;
@@ -104,6 +112,7 @@
 			else{
 				event.currentTarget.x = getX;
 				event.currentTarget.y = getY;
+				scoring.decPoints();
 				wSound.play();
 				getX = 0;
 				getY = 0;
@@ -148,6 +157,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

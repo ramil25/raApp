@@ -8,11 +8,14 @@
 	import flash.media.Sound;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level2Day3 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level2Day3() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -84,18 +87,21 @@
 					{
 						case "btn_eagle":
 							MovieClip(root).correct_eagle.visible = true;
+							scoring.addPoints();
 							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
 						case "btn_van":
 							MovieClip(root).wrong_van.visible = true;
+							scoring.decPoints();
 							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_pillow_1":
 							MovieClip(root).correct_pillow.visible = true;
+							scoring.addPoints();
 							cSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
@@ -107,18 +113,21 @@
 					{
 						case "btn_tree":
 							MovieClip(root).correct_tree.visible = true;
+							scoring.addPoints();
 							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
 						case "btn_cat_1":
 							MovieClip(root).wrong_cat.visible = true;
+							scoring.decPoints();
 							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_jeep":
 							MovieClip(root).correct_jeep.visible = true;
+							scoring.addPoints();
 							cSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
@@ -130,18 +139,21 @@
 					{
 						case "btn_coat":
 							MovieClip(root).correct_coat.visible = true;
+							scoring.addPoints();
 							cSound.play();
 							clickedAnswerPics.push('a');
 							checkAnswer();
 						break;
 						case "btn_dogg":
 							MovieClip(root).wrong_dog.visible = true;
+							scoring.decPoints();
 							wSound.play();
 							clickedAnswerPics.push('b');
 							checkAnswer();
 						break;
 						case "btn_bag":
 							MovieClip(root).wrong_bag.visible = true;
+							scoring.decPoints();
 							wSound.play();
 							clickedAnswerPics.push('c');
 							checkAnswer();
@@ -250,6 +262,7 @@
 			for(var i:int = 0; i < correctWord.length; i++) {
 				if(event.currentTarget.name == correctWord[i])
 				{
+					scoring.addPoints();
 					MovieClip(root)[correctCircle[i]].visible = true;
 					sounds[i].play();
 					correctCount++;
@@ -300,6 +313,7 @@
 			for(var i:int = 0; i < wrongWord.length; i++) {
 				if(event.currentTarget.name == wrongWord[i])
 				{
+					scoring.decPoints();
 					sounds[i].play();
 				}
 				
@@ -325,6 +339,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

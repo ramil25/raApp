@@ -6,11 +6,14 @@
 	import flash.utils.Timer;
 	import flash.utils.setTimeout;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level3Day1 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level3Day1() {
-			// constructor code
+			addChild(scoring);
 		}
 		public function playGame(e: MouseEvent): void {
 			switch (e.currentTarget.name) {
@@ -41,6 +44,7 @@
 			if (MovieClip(root).currentFrame == 4 && event.currentTarget.name == "a_btn" && event.currentTarget.hitTestObject(MovieClip(this.root).trig)) {
 				MovieClip(this.root).a_btn.x = 391;
 				MovieClip(this.root).a_btn.y = 636;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				countdown = 180;
@@ -48,6 +52,7 @@
 			} else if (MovieClip(root).currentFrame == 5 && event.currentTarget.name == "i_btn" && event.currentTarget.hitTestObject(MovieClip(this.root).trig2)) {
 				MovieClip(this.root).i_btn.x = 609;
 				MovieClip(this.root).i_btn.y = 634;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				countdown = 180;
@@ -55,6 +60,7 @@
 			} else if (MovieClip(root).currentFrame == 6 && event.currentTarget.name == "i_btn" && event.currentTarget.hitTestObject(MovieClip(this.root).trig3)) {
 				MovieClip(this.root).i_btn.x = 389;
 				MovieClip(this.root).i_btn.y = 635;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				countdown = 180;
@@ -62,6 +68,7 @@
 			} else if (MovieClip(root).currentFrame == 7 && event.currentTarget.name == "e_btn" && event.currentTarget.hitTestObject(MovieClip(this.root).trig4)) {
 				MovieClip(this.root).e_btn.x = 392;
 				MovieClip(this.root).e_btn.y = 634;
+				scoring.addPoints();
 				cSound.play();
 				countdown = 180;
 				timer.stop();
@@ -69,11 +76,13 @@
 			} else if (MovieClip(root).currentFrame == 8 && event.currentTarget.name == "a_btn" && event.currentTarget.hitTestObject(MovieClip(this.root).trig5)) {
 				MovieClip(this.root).a_btn.x = 498;
 				MovieClip(this.root).a_btn.y = 632;
+				scoring.addPoints();
 				cSound.play();
 				timer.stop();
 				countdown = 180;
 				MovieClip(this.root).nextBtn.visible = true;
 			} else {
+				scoring.decPoints();
 				wSound.play();
 				event.currentTarget.x = getX;
 				event.currentTarget.y = getY;
@@ -127,6 +136,8 @@
 			endTimeSound.play();
 			timer.reset();
 			countdown = 180;
+			
+			scoring.decPoints();
 			setTimeout(nextFramee,2000);
 			
 		}

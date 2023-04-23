@@ -8,11 +8,14 @@
 	import flash.media.Sound;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level4Day1 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level4Day1() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -34,6 +37,7 @@
 		
 		public function correctAnswer(e:MouseEvent):void 
 		{
+			scoring.addPoints();
 			cSound.play();
 			timer.stop();
 			cd = 180;
@@ -62,6 +66,7 @@
 		
 		public function wrongAnswer(e:MouseEvent):void 
 		{
+			scoring.decPoints();
 			wSound.play();
 		}
 		
@@ -84,6 +89,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

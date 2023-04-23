@@ -6,11 +6,14 @@
 	import flash.events.TimerEvent;
 	import flash.media.Sound;
 	import flash.utils.setTimeout;
+	import Scoring;
 	
 	public class Level5Day3 extends MovieClip{
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level5Day3() {
-			// constructor code
+			addChild(scoring);
 		}
 		public function nextPages(e:MouseEvent):void
 		{
@@ -36,6 +39,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				MovieClip(root).sn1t.visible = true;
 				event.currentTarget.visible = false;
+				scoring.addPoints();
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
@@ -51,6 +55,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				MovieClip(root).sn2t.visible = true;
 				event.currentTarget.visible = false;
+				scoring.addPoints();
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
@@ -66,6 +71,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				MovieClip(root).spt.visible = true;
 				event.currentTarget.visible = false;
+				scoring.addPoints();
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
@@ -81,6 +87,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				MovieClip(root).swt.visible = true;
 				event.currentTarget.visible = false;
+				scoring.addPoints();
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
@@ -96,6 +103,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				MovieClip(root).slt.visible = true;
 				event.currentTarget.visible = false;
+				scoring.addPoints();
 				cSound.play();
 				countCorrect = countCorrect+1;
 				if(countCorrect ==5)
@@ -108,6 +116,7 @@
 			else{
 				event.currentTarget.x = getX;
 				event.currentTarget.y = getY;
+				scoring.decPoints();
 				wSound.play();
 				getX = 0;
 				getY = 0;
@@ -132,6 +141,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		public function timerNextFrame():void {

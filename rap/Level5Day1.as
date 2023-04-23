@@ -7,11 +7,14 @@
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
 	import flash.utils.setTimeout;
+	import Scoring;
 
 	public class Level5Day1 extends MovieClip {
 
+		public var scoring:Scoring = new Scoring();
+		
 		public function Level5Day1() {
-			// constructor code
+			addChild(scoring);
 		}
 		
 		public var getX: int = 0;
@@ -42,6 +45,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				event.currentTarget.x = MovieClip(this.root).pointCollider1.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider1.y-10;
+				scoring.addPoints();
 				cSound.play();
 				event.currentTarget.visible = false;
 				MovieClip(root).dr1t.visible = true;
@@ -59,6 +63,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				event.currentTarget.x = MovieClip(this.root).pointCollider2.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider2.y-10;
+				scoring.addPoints();
 				cSound.play();
 				event.currentTarget.visible = false;
 				MovieClip(root).dr2t.visible = true;
@@ -76,6 +81,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				event.currentTarget.x = MovieClip(this.root).pointCollider3.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider3.y-10;
+				scoring.addPoints();
 				cSound.play();
 				event.currentTarget.visible = false;
 				MovieClip(root).brt.visible = true;
@@ -93,6 +99,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				event.currentTarget.x = MovieClip(this.root).pointCollider4.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider4.y-10;
+				scoring.addPoints();
 				cSound.play();
 				event.currentTarget.visible = false;
 				MovieClip(root).frt.visible = true;
@@ -110,6 +117,7 @@
 				event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, this.dropIt);
 				event.currentTarget.x = MovieClip(this.root).pointCollider5.x;
 				event.currentTarget.y = MovieClip(this.root).pointCollider5.y-10;
+				scoring.addPoints();
 				cSound.play();
 				event.currentTarget.visible = false;
 				MovieClip(root).trt.visible = true;
@@ -125,6 +133,7 @@
 			else{
 				event.currentTarget.x = getX;
 				event.currentTarget.y = getY;
+				scoring.decPoints();
 				wSound.play();
 				getX = 0;
 				getY = 0;
@@ -150,6 +159,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

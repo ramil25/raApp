@@ -5,11 +5,14 @@
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import flash.media.Sound;
+	import Scoring;
 
 	public class Level2Day5 extends MovieClip {
 
-		public function Level2Day5() {
+		public var scoring:Scoring = new Scoring();
 		
+		public function Level2Day5() {
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -32,6 +35,7 @@
 		
 		public function correctChoice(e:MouseEvent):void 
 		{
+			scoring.addPoints();
 			cSound.play();
 			
 			if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c2") 
@@ -56,26 +60,32 @@
 		{
 			if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c1") 
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 31 && e.currentTarget.name == "btn_c3") 
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 32 && e.currentTarget.name == "btn_c2")
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 32 && e.currentTarget.name == "btn_c3")
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c1")
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c2")
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			else 

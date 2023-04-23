@@ -6,11 +6,14 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
+	import Scoring;
 
 	public class Level2Day1 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level2Day1() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -71,6 +74,7 @@
 				comboAns[0] = false;
 				comboAns[1] = false;
 				
+				scoring.addPoints();
 				cSound.play();
 				
 				switch(MovieClip(root).currentFrame)
@@ -96,6 +100,7 @@
 			}
 			else 
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			

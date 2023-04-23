@@ -6,11 +6,14 @@
 	import flash.utils.setTimeout;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 	
 	public class Level3Day3 extends MovieClip{
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level3Day3() {
-			// constructor code
+			addChild(scoring);
 		}
 		//buttons
 		public function playButtons(e:MouseEvent):void
@@ -86,6 +89,7 @@
 				{
 					MovieClip(root)[correctCircle[i]].visible = true;
 					sounds[i].play();
+					scoring.addPoints();
 					correctCount++;
 					
 					event.currentTarget.removeEventListener(MouseEvent.CLICK, correctWords);
@@ -135,6 +139,7 @@
 			for(var i:int = 0; i < wrongWord.length; i++) {
 				if(event.currentTarget.name == wrongWord[i])
 				{
+					scoring.decPoints();
 					sounds[i].play();
 				}
 				
@@ -160,6 +165,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		
