@@ -9,11 +9,14 @@
 	import flash.media.SoundMixer;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level4Day4 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level4Day4() {
-			// constructor code
+			addChild(scoring);
 		}
 		public function playButtons(e: MouseEvent): void {
 			switch (e.currentTarget.name) {
@@ -64,10 +67,12 @@
 					changePosition(btn_name);
 					event.currentTarget.removeEventListener(MouseEvent.MOUSE_DOWN, startDragg);
 					event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, stopDragg);
+					scoring.addPoints();
 					cSound.play();
 					wordCounter--;
 				}
 				else {
+					scoring.decPoints();
 					wSound.play();
 					event.currentTarget.x = getX;
 					event.currentTarget.y = getY;
@@ -82,10 +87,12 @@
 					changePosition(btn_name);
 					event.currentTarget.removeEventListener(MouseEvent.MOUSE_DOWN, startDragg);
 					event.currentTarget.removeEventListener(MouseEvent.MOUSE_UP, stopDragg);
+					scoring.addPoints();
 					cSound.play();
 					wordCounter--;
 				}
 				else {
+					scoring.decPoints();
 					wSound.play();
 					event.currentTarget.x = getX;
 					event.currentTarget.y = getY;
@@ -173,6 +180,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

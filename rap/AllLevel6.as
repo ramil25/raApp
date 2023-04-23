@@ -3,11 +3,14 @@
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
 	import flash.media.Sound;
+	import Scoring;
 	
 	public class AllLevel6 extends MovieClip{
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function AllLevel6() {
-			// constructor code
+			addChild(scoring);
 		}
 		public var robot1:Sound = new Robot1Sound();
 		public var robot2:Sound = new Robot2Sound();
@@ -23,6 +26,7 @@
 		public function correctChoice(e:MouseEvent):void 
 		{
 			e.currentTarget.removeEventListener(MouseEvent.CLICK, this.correctChoice);
+			scoring.addPoints();
 			cSound.play();
 			
 			if(MovieClip(root).currentFrame == 12) 
@@ -135,6 +139,7 @@
 		public function wrongChoice(e:MouseEvent):void 
 		{
 			e.currentTarget.removeEventListener(MouseEvent.CLICK, this.wrongChoice);
+			scoring.decPoints();
 			wSound.play();
 			
 		}

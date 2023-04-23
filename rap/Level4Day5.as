@@ -9,11 +9,14 @@
 	import flash.media.SoundMixer;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level4Day5 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level4Day5() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -73,6 +76,7 @@
 				longECombo[0] = false;
 				longECombo[1] = false;
 				
+				scoring.addPoints();
 				cSound.play();
 				showLine();
 			}
@@ -81,12 +85,14 @@
 				longICombo[0] = false;
 				longICombo[1] = false;
 				
+				scoring.addPoints();
 				cSound.play();
 				showLine();
 			}
 			else 
 			{
 				btnSelected = "";
+				scoring.decPoints();
 				wSound.play();
 			}
 			
@@ -214,6 +220,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

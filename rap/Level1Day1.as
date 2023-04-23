@@ -6,12 +6,14 @@
 	import flash.events.Event;
 	import flash.utils.setTimeout;
 	import flash.media.Sound;
-
+	import Scoring;
 
 	public class Level1Day1 extends MovieClip {
 
-		public function Level1Day1() {
+		public var scoring:Scoring = new Scoring();
 		
+		public function Level1Day1() {
+			addChild(scoring);
 		}
 		
 		public function gotoPlay(e:MouseEvent):void
@@ -57,6 +59,7 @@
 					switch(event.currentTarget.name)
 					{
 						case "catBtn":
+							scoring.addPoints();
 							cSound.play();
 							setTimeout(gotoNext,1500);
 						break;
@@ -64,30 +67,49 @@
 				case 5:
 					switch(event.currentTarget.name)
 					{
-						case "bedBtn":cSound.play(); setTimeout(gotoNext,1500);
+						case "bedBtn":
+							scoring.addPoints();
+							cSound.play(); 
+							setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 6:
 					switch(event.currentTarget.name)
 					{
-						case "childBtn":cSound.play(); setTimeout(gotoNext,1500);
+						case "childBtn":
+							scoring.addPoints();
+							cSound.play(); 
+							setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 7:
 					switch(event.currentTarget.name)
 					{
-						case "dogBtn":cSound.play(); setTimeout(gotoNext,1500);
+						case "dogBtn":
+							scoring.addPoints();
+							cSound.play(); 
+							setTimeout(gotoNext,1500);
 						break;
 					}break;
 				case 8:
 					switch(event.currentTarget.name)
 					{
-						case "sunBtn":cSound.play(); setTimeout(gotoNext,1500);
+						case "sunBtn":
+							scoring.addPoints();
+							cSound.play(); 
+							setTimeout(gotoNext,1500);
 						break;
 					}break;
 					
 			}
 		}
+		
+		public function wrongAnswer(e:MouseEvent):void {
+			var wSound:Sound = new WrongSound();
+			scoring.decPoints();
+			wSound.play();
+		}
+		
 		public function gotoNext():void
 		{
 			if (MovieClip(root).currentFrame == 4) {

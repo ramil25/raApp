@@ -8,11 +8,14 @@
 	import flash.media.SoundMixer;
 	import flash.media.Sound;
 	import flash.geom.Point;
+	import Scoring;
 
 	public class Level3Day4 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level3Day4() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -175,129 +178,155 @@
 			if(MovieClip(root).currentFrame == 29 && cp1.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_jay.visible = true;
 				isComplete1[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 29 && cp2.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_ray.visible = true;
 				isComplete1[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 29 && cp3.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_play.visible = true;
 				isComplete1[2] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 30 && cp4.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_day.visible = true;
 				isComplete2[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 30 && cp5.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_hay.visible = true;
 				isComplete2[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 31 && cp6.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_day1.visible = true;
 				isComplete3[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 31 && cp7.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_rain.visible = true;
 				isComplete3[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 32 && cp8.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_jay1.visible = true;
 				isComplete4[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 32 && cp9.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_ray1.visible = true;
 				isComplete4[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 32 && cp10.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_play1.visible = true;
 				isComplete4[2] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && cp11.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_jay2.visible = true;
 				isComplete5[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && cp12.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_stay.visible = true;
 				isComplete5[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && cp13.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_play2.visible = true;
 				isComplete5[2] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 33 && cp14.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_ray2.visible = true;
 				isComplete5[3] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp15.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_jay3.visible = true;
 				isComplete6[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp16.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_stay2.visible = true;
 				isComplete6[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp17.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_play3.visible = true;
 				isComplete6[2] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp18.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_say.visible = true;
 				isComplete6[3] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp19.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_okay.visible = true;
 				isComplete6[4] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp20.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_ray3.visible = true;
 				isComplete6[5] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 34 && cp21.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_say1.visible = true;
 				isComplete6[6] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 35 && cp22.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_jay4.visible = true;
 				isComplete7[0] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 35 && cp23.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_ray4.visible = true;
 				isComplete7[1] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 35 && cp24.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_stayed.visible = true;
 				isComplete7[2] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else if(MovieClip(root).currentFrame == 35 && cp25.hitTestPoint(endPoint.x, endPoint.y)) {
 				MovieClip(root).h_played.visible = true;
 				isComplete7[3] = 1;
+				scoring.addPoints();
 				cSound.play();
 			}
 			else {
+				scoring.decPoints();
 				wSound.play();
 			}
 			

@@ -10,11 +10,14 @@
 	import flash.media.SoundMixer;
 	import flash.utils.Timer;
 	import flash.events.TimerEvent;
+	import Scoring;
 
 	public class Level5Day5 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level5Day5() {
-		
+			addChild(scoring);
 		}
 		
 		public function playButtons(e:MouseEvent):void
@@ -353,6 +356,7 @@
 			if(columnWord[0] == true && columnPic[0] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_crown.visible = true;
 				MovieClip(root).word_crown.visible = false;
@@ -360,6 +364,7 @@
 			else if(columnWord[1] == true && columnPic[1] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_drum.visible = true;
 				MovieClip(root).word_drum.visible = false;
@@ -367,6 +372,7 @@
 			else if(columnWord[2] == true && columnPic[2] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_bridge.visible = true;
 				MovieClip(root).word_bridge.visible = false;
@@ -374,6 +380,7 @@
 			else if(columnWord[3] == true && columnPic[3] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_broom.visible = true;
 				MovieClip(root).word_broom.visible = false;
@@ -381,6 +388,7 @@
 			else if(columnWord[4] == true && columnPic[4] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_dress.visible = true;
 				MovieClip(root).word_dress.visible = false;
@@ -388,6 +396,7 @@
 			else if(columnWord[5] == true && columnPic[5] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_snail.visible = true;
 				MovieClip(root).word_snail.visible = false;
@@ -395,6 +404,7 @@
 			else if(columnWord[6] == true && columnPic[6] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_squirrel.visible = true;
 				MovieClip(root).word_squirrel.visible = false;
@@ -402,6 +412,7 @@
 			else if(columnWord[7] == true && columnPic[7] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_store.visible = true;
 				MovieClip(root).word_store.visible = false;
@@ -409,6 +420,7 @@
 			else if(columnWord[8] == true && columnPic[8] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_stone.visible = true;
 				MovieClip(root).word_stone.visible = false;
@@ -416,12 +428,14 @@
 			else if(columnWord[9] == true && columnPic[9] == true)
 			{
 				correctCounter++;
+				scoring.addPoints();
 				cSound.play();
 				MovieClip(root).line_scale.visible = true;
 				MovieClip(root).word_scale.visible = false;
 			}
 			else 
 			{
+				scoring.decPoints();
 				wSound.play();
 			}
 			
@@ -471,6 +485,7 @@
 			timer.reset();
 			cd = 180;
 			
+			scoring.decPoints();
 			setTimeout(timerNextFrame, 1000);
 		}
 		

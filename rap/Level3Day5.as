@@ -3,11 +3,14 @@
 	import flash.events.MouseEvent;
 	import flash.media.Sound;
 	import flash.display.SimpleButton;
+	import Scoring;
 	
 	public class Level3Day5 extends MovieClip {
+		
+		public var scoring:Scoring = new Scoring();
 
 		public function Level3Day5() {
-			// constructor code
+			addChild(scoring);
 		}
 		
 		public var cSound:Sound = new CorrectSound();
@@ -19,9 +22,6 @@
 		//answer detection
 		public function correctAnswer(e:MouseEvent):void
 		{
-			
-			
-			
 			if(MovieClip(root).currentScene.name == "lesson3" && MovieClip(root).currentFrame == 38)
 			{
 				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
@@ -49,10 +49,12 @@
 				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
 				
 			}
+			scoring.addPoints();
 			cSound.play();
 		}
 		public function wrongAnswer(e:MouseEvent):void
 		{
+			scoring.decPoints();
 			wSound.play();
 			e.currentTarget.removeEventListener(MouseEvent.CLICK,this.wrongAnswer);
 			
