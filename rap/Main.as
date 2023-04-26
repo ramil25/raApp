@@ -20,6 +20,8 @@
 	import Level5Day5;
 	import flash.display.Stage;
 	import flash.media.Sound;
+	import flash.events.MouseEvent;
+	import flash.desktop.NativeApplication;
 	
     public class Main extends MovieClip{
 
@@ -48,6 +50,7 @@
 		public var l5d3:Level5Day3 = new Level5Day3();
 		public var l5d4:Level5Day4 = new Level5Day4();
 		public var l5d5:Level5Day5 = new Level5Day5();
+		public var cursor:Cursor = new Cursor();
 		public var allLevel6:AllLevel6 = new AllLevel6();
 		public var allDaysButtons:AllDaysButtons = new AllDaysButtons();
 		
@@ -79,6 +82,9 @@
 			addChild(l5d5);
 			addChild(allLevel6);
 			addChild(allDaysButtons);
+			addChild(cursor);
+			stage.addEventListener(MouseEvent.MOUSE_DOWN, cursor.showCursor);
+			stage.addEventListener(MouseEvent.MOUSE_UP, cursor.hideCursor);
         }
 		
 		// Button function for levels
@@ -151,6 +157,11 @@
 				default: trace("button not found");
 					
 			}
+		}
+		
+		public function exitApp(e:MouseEvent):void
+		{
+			NativeApplication.nativeApplication.exit(0);
 		}
 		
 	}
