@@ -51,6 +51,7 @@
 		public var l5d4:Level5Day4 = new Level5Day4();
 		public var l5d5:Level5Day5 = new Level5Day5();
 		public var cursor:Cursor = new Cursor();
+		public var store:Store = new Store();
 		public var allLevel6:AllLevel6 = new AllLevel6();
 		public var allDaysButtons:AllDaysButtons = new AllDaysButtons();
 		
@@ -83,6 +84,7 @@
 			addChild(allLevel6);
 			addChild(allDaysButtons);
 			addChild(cursor);
+			addChild(store);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, cursor.showCursor);
 			stage.addEventListener(MouseEvent.MOUSE_UP, cursor.hideCursor);
         }
@@ -164,5 +166,8 @@
 			NativeApplication.nativeApplication.exit(0);
 		}
 		
+		public function goToStore(e:MouseEvent):void {
+			gotoAndStop(1, "store");
+		}
 	}
 }

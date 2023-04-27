@@ -12,69 +12,76 @@
 
 	public class Scoring extends MovieClip {
 
-		var points:SharedObject = SharedObject.getLocal("points");
+		var so:SharedObject = SharedObject.getLocal("SharedObject");
 		var wrongCounter:int = 0;
 		var pointStatus:String = "";
 		
 		public function Scoring() {
-			points.data.myPoints = 0;
+			if(so.data.myPoints == null) {
+				so.data.myPoints = 0;
+				so.flush();
+			}
+			else {
+				so.data.myPoints = so.data.myPoints;
+				so.flush();
+			}
+			
 		}
 		
 		var ptsContainer:Class = getDefinitionByName("TextPoints") as Class; 
 		var mc:MovieClip = new ptsContainer();
 		
 		public function addPoints():void {
-			var currPoints:int = points.data.myPoints;
-			
+			var currPoints:int = so.data.myPoints;
 			
 			if(wrongCounter == 0)
 			{
-				points.data.myPoints = currPoints + 5;
+				so.data.myPoints = currPoints + 5;
 				pointStatus = "+5";
 			}
 			else if(wrongCounter == 1) 
 			{
-				points.data.myPoints = currPoints + 4;
+				so.data.myPoints = currPoints + 4;
 				pointStatus = "+4";
 			}
 			else if(wrongCounter == 2) 
 			{
-				points.data.myPoints = currPoints + 3;
+				so.data.myPoints = currPoints + 3;
 				pointStatus = "+3";
 			}
 			else if(wrongCounter == 3) 
 			{
-				points.data.myPoints = currPoints + 2;
+				so.data.myPoints = currPoints + 2;
 				pointStatus = "+2";
 			}
 			else 
 			{
-				points.data.myPoints = currPoints + 1;
+				so.data.myPoints = currPoints + 1;
 				pointStatus = "+1";
 			}
 			
 			wrongCounter = 0;
-			points.flush();
+			so.flush();
 
-			displayPoints(points.data.myPoints, pointStatus);
+			displayPoints(so.data.myPoints, pointStatus);
 		}
 		
 		public function decPoints():void {
-			var currPoints:int = points.data.myPoints;
+			var currPoints:int = so.data.myPoints;
 			wrongCounter++;
 			
 			if(currPoints > 1)
 			{
-				points.data.myPoints = currPoints - 2;
+				so.data.myPoints = currPoints - 2;
 			}
 			else {
-				points.data.myPoints = 0;
+				so.data.myPoints = 0;
 			}
 			
-			points.flush();
+			so.flush();
 			
 			pointStatus = "-2";
-			displayPoints(points.data.myPoints, pointStatus);
+			displayPoints(so.data.myPoints, pointStatus);
 		}
 		
 		function displayPoints(totalPoints:int, pointStatus:String):void {
