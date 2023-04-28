@@ -157,6 +157,7 @@
 			{
 				timer.stop();
 				cd = 180;
+				scoring.addScore("L4D4");
 				MovieClip(this.root).gotoAndStop(33, "lesson4");
 			}
 		}
@@ -187,6 +188,7 @@
 		public function timerNextFrame():void {
 			if(MovieClip(root).currentFrame == 27)
 			{
+				scoring.addScore("L4D4");
 				MovieClip(root).gotoAndStop(33, "lesson4");
 			}
 		}

@@ -92,6 +92,7 @@
 						MovieClip(root).gotoAndStop(8,"lesson2");
 					break;
 					case 8:
+						scoring.addScore("L2D1");
 						MovieClip(root).gotoAndStop(34,"lesson2");
 					break;
 					default: 

@@ -48,6 +48,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 33 && e.currentTarget.name == "btn_c3")
 			{
+				scoring.addScore("L2D5");
 				MovieClip(root).gotoAndStop(34,"lesson2");
 			}
 			else 

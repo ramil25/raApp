@@ -47,6 +47,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 16)
 			{
+				scoring.addScore("L6D1");
 				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 21)
@@ -67,6 +68,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 25)
 			{
+				scoring.addScore("L6D2");
 				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 32)
@@ -87,6 +89,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 36)
 			{
+				scoring.addScore("L6D3");
 				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else if(MovieClip(root).currentFrame == 41)
@@ -107,6 +110,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 45)
 			{
+				scoring.addScore("L6D4");
 				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			
@@ -128,6 +132,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 57)
 			{
+				scoring.addScore("L6D5");
 				MovieClip(root).gotoAndStop(59,"lesson6");
 			}
 			else 

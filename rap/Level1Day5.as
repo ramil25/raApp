@@ -42,6 +42,7 @@
 			}
 			else if(MovieClip(root).currentScene.name == "lesson1" && MovieClip(root).currentFrame == 34)
 			{
+				scoring.addScore("L1D5");
 				e.currentTarget.removeEventListener(MouseEvent.CLICK,this.correctAnswer);
 				MovieClip(root).gotoAndStop(35,"lesson1");
 			}
