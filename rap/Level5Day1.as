@@ -54,6 +54,7 @@
 				{
 					timer.stop();
 					cd = 180;
+					scoring.addScore("L5D1");
 					MovieClip(root).gotoAndStop(30,"lesson5");
 				}
 			}
@@ -72,6 +73,7 @@
 				{
 					timer.stop();
 					cd = 180;
+					scoring.addScore("L5D1");
 					MovieClip(root).gotoAndStop(30,"lesson5");
 				}
 			}
@@ -90,6 +92,7 @@
 				{
 					timer.stop();
 					cd = 180;
+					scoring.addScore("L5D1");
 					MovieClip(root).gotoAndStop(30,"lesson5");
 				}
 			}
@@ -108,6 +111,7 @@
 				{
 					timer.stop();
 					cd = 180;
+					scoring.addScore("L5D1");
 					MovieClip(root).gotoAndStop(30,"lesson5");
 				}
 			}
@@ -126,6 +130,7 @@
 				{
 					timer.stop();
 					cd = 180;
+					scoring.addScore("L5D1");
 					MovieClip(root).gotoAndStop(30,"lesson5");
 				}
 					
@@ -166,6 +171,7 @@
 		public function timerNextFrame():void {
 			if(MovieClip(root).currentFrame == 7)
 			{
+				scoring.addScore("L5D1");
 				MovieClip(root).gotoAndStop(30, "lesson5");
 			}
 		}

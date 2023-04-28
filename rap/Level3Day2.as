@@ -27,6 +27,7 @@
 			e.currentTarget.removeEventListener(MouseEvent.CLICK, this.nextFramed);
 			if(MovieClip(this.root).currentFrame ==19)
 			{
+				scoring.addScore("L3D2");
 				MovieClip(this.root).gotoAndStop(43);
 			}
 			else{
@@ -180,6 +181,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 19)
 			{
+				scoring.addScore("L3D2");
 				MovieClip(root).gotoAndStop(43, "lesson3");
 			}
 

@@ -462,6 +462,7 @@
 				correctCounter = 0;
 				timer.stop();
 				cd = 180;
+				scoring.addScore("L5D5");
 				MovieClip(root).gotoAndStop(30,"lesson5");
 			}
 		}
@@ -496,6 +497,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 28)
 			{
+				scoring.addScore("L5D5");
 				MovieClip(root).gotoAndStop(30, "lesson5");
 			}
 		}

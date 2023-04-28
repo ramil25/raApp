@@ -198,6 +198,7 @@
 		}
 		
 		function goToDone():void {
+			scoring.addScore("L4D5");
 			MovieClip(root).gotoAndStop(33, "lesson4");
 		}
 		
@@ -227,6 +228,7 @@
 		public function timerNextFrame():void {
 			if(MovieClip(root).currentFrame == 31)
 			{
+				scoring.addScore("L4D5");
 				MovieClip(root).gotoAndStop(33, "lesson4");
 			}
 		}

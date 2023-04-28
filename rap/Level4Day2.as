@@ -91,6 +91,7 @@
 					MovieClip(root).gotoAndStop(18,"lesson4");
 				break;
 				case 18:
+					scoring.addScore("L4D2");
 					MovieClip(root).gotoAndStop(33,"lesson4");
 				break;
 				default:
@@ -146,6 +147,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 18)
 			{
+				scoring.addScore("L4D2");
 				MovieClip(root).gotoAndStop(33, "lesson4");
 			}
 		}

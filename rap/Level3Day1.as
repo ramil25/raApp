@@ -114,6 +114,7 @@
 
 		}
 		public function gotoDone(e: MouseEvent): void {
+			scoring.addScore("L3D1");
 			MovieClip(this.root).gotoAndStop(43, "lesson3");
 		}
 
@@ -144,6 +145,7 @@
 		public function nextFramee(){
 			if(MovieClip(this.root).currentFrame == 8)
 			{
+				scoring.addScore("L3D1");
 				MovieClip(this.root).gotoAndStop(43,"lesson3");
 			}else{
 				MovieClip(this.root).nextFrame();

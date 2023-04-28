@@ -109,6 +109,7 @@
 						correctCount = 0
 						timer.stop();
 						cd = 180;
+						scoring.addScore("L4D3");
 						MovieClip(root).gotoAndStop(33, "lesson4");
 					}
 				}
@@ -178,6 +179,7 @@
 			}
 			else if(MovieClip(root).currentFrame == 23)
 			{
+				scoring.addScore("L4D3");
 				MovieClip(root).gotoAndStop(33, "lesson4");
 			}
 		}

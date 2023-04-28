@@ -412,6 +412,7 @@
 		}
 		
 		function goToDone():void {
+			scoring.addScore("L3D4");
 			MovieClip(root).gotoAndStop(43, "lesson3");
 		}
 		

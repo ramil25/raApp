@@ -126,6 +126,7 @@
 				MovieClip(root).gotoAndStop(8, "lesson1");
 			}
 			else if (MovieClip(root).currentFrame == 8) {
+				scoring.addScore("L1D1");
 				MovieClip(root).gotoAndStop(35, "lesson1");
 			}
 			
