@@ -52,6 +52,7 @@
 		public var l5d5:Level5Day5 = new Level5Day5();
 		public var cursor:Cursor = new Cursor();
 		public var store:Store = new Store();
+		public var scoreBoard:ScoreNavigation = new ScoreNavigation();
 		public var allLevel6:AllLevel6 = new AllLevel6();
 		public var allDaysButtons:AllDaysButtons = new AllDaysButtons();
 		
@@ -85,6 +86,7 @@
 			addChild(allDaysButtons);
 			addChild(cursor);
 			addChild(store);
+			addChild(scoreBoard);
 			stage.addEventListener(MouseEvent.MOUSE_DOWN, cursor.showCursor);
 			stage.addEventListener(MouseEvent.MOUSE_UP, cursor.hideCursor);
         }
